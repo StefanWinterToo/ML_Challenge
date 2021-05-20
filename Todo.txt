@@ -10,3 +10,5 @@
 \'97 We can play with the data a bit\
 \'97 Explore the data\
 \'97 Loading the data}
+
+I see a lot of strange paths in here, do you guys see that as well?
