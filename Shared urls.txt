@@ -3,3 +3,11 @@ Shared urls:
 Global example of our task: 
 https://www.freecodecamp.org/news/weekend-projects-sign-language-and-static-gesture-recognition-using-scikit-learn-60813d600e79/
 
+Image Segmentation:
+https://scikit-image.org/docs/dev/user_guide/tutorial_segmentation.html
+
+Sliding Windows:
+https://www.pyimagesearch.com/2015/03/23/sliding-windows-for-object-detection-with-python-and-opencv/
+
+Object Detection and Bounding Boxes:
+https://d2l.ai/chapter_computer-vision/bounding-box.html
