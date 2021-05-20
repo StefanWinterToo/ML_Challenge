@@ -2,5 +2,9 @@ Stefan Winter says hi!
 
 Joost[0] says: "how you doin"
 
+<<<<<<< HEAD
+ppp
+=======
 
 Sup
+>>>>>>> f70e3eacdcad374655fa2241a6854969647cc7c2
