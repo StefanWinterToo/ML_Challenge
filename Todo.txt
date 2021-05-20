@@ -3,6 +3,7 @@ ToDo
 -- We can play with the data a bit
 -- Explore the data
 -- Loading the data
+-- Get the data on Sourcetree
 
 I see a lot of strange paths in here, do you guys see that as well?
 - Yeah. I think that is because I converted it from .rtf to .txt
