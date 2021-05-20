@@ -1,0 +1,5 @@
+Shared urls: 
+
+Global example of our task: 
+https://www.freecodecamp.org/news/weekend-projects-sign-language-and-static-gesture-recognition-using-scikit-learn-60813d600e79/
+
