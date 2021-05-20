@@ -1,7 +1,8 @@
-Stefan Winter says hi!
+Stefan Winter says hi, what's up!
 
 Joost[0] says: "how you doin"
 
+<<<<<<< .merge_file_a3jcWA
 <<<<<<< HEAD
 ppp
 =======
@@ -11,3 +12,5 @@ Sup
 
 
 Let's hope this works! - Joost S.
+=======
+>>>>>>> .merge_file_iAI6eZ
