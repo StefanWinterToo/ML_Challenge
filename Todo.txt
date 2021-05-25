@@ -1,9 +1,9 @@
 ToDo
--- Subset of data (data is too big
+-- Subset of data (data is too big)
 -- We can play with the data a bit
 -- Explore the data
 -- Loading the data
 -- Get the data on Sourcetree
--- Installing keras (way to go for deep learning) if not using Colab
--- How to handle the .npz file
-
+-- Installing keras (way to go for deep learning) if not using Colab (check)
+-- How to handle the .npz file                                       (check)
+-- How to create a relative path that works for all
