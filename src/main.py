@@ -1,12 +1,11 @@
 import numpy
-import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
-import os
 from pathlib import Path
 from sklearn.metrics import classification_report
 from models import SuportVectorMachine
 from termcolor import colored
+
 
 def train_model(filename, X_train, y_train):
     model = classifier.train_pipeline(X_train, y_train)
@@ -14,7 +13,7 @@ def train_model(filename, X_train, y_train):
 
     return model
 
-    
+
 def print_score(classifier, model, X_test, y_test):
     accuracy, params = classifier.best_parameters(model, X_test, y_test)
     print("Accuracy of {} can be achieved with the following \
@@ -28,10 +27,12 @@ def print_score(classifier, model, X_test, y_test):
     # Save Predictions to save time when rerunning
     save_predictions(classifier.name, y_pred)
 
+
 def save_predictions(name, predictions):
     file = "data/predictions_training/" + str(name) + ".csv"
     numpy.savetxt(file, predictions, delimiter=",")
-    
+
+
 def load_data():
     with numpy.load("/Users/stefanwinter/Local/data/train_data_label.npz") as data:
         train_data = data["train_data"]
@@ -42,6 +43,7 @@ def load_data():
         test_label = data["test_label"]
 
     return train_data, train_label, test_data, test_label
+
 
 if __name__ == "__main__":
     classifier = SuportVectorMachine("SVM")

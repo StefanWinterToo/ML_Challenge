@@ -6,10 +6,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support, confusion_matrix, classification_report
 
 class SuportVectorMachine:
-    import matplotlib.pyplot as plt
-    import pandas as pd
-    import re
-
 
     def __init__(self, name):
         self.name = name
