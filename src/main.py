@@ -3,13 +3,20 @@ import pandas as pd
 import pickle
 from pathlib import Path
 from sklearn.metrics import classification_report
-from models import SuportVectorMachine
+from models import RandomForest, SuportVectorMachine
 from termcolor import colored
 
 
 def train_model(filename, X_train, y_train):
-    model = classifier.train_pipeline(X_train, y_train)
-    pickle.dump(model, open(filename, "wb"))
+    if classifier.name == "SVM":
+        model = classifier.train_pipeline(X_train, y_train)
+        pickle.dump(model, open(filename, "wb"))
+    elif classifier.name == "rf":
+        params_flag = input("Train rf with hyperparameters? (yes/no) ")
+        model = classifier.train_pipeline(X_train, y_train, params_flag)
+        pickle.dump(model, open(filename, "wb"))
+    else:
+        print(colored("Check the naming of the classifier!", "red"))
 
     return model
 
@@ -46,19 +53,22 @@ def load_data():
 
 
 if __name__ == "__main__":
+
+    # Choose classifier
     classifier = SuportVectorMachine("SVM")
+    # classifier = RandomForest("rf")
 
     X_train, y_train, X_test, y_test = load_data()
 
     """ Temporarily Limit Data """
-    X_train = X_train[:50,:]
-    y_train = y_train[:50]
-    X_test = X_test[:10, :]
-    y_test = y_test[:10]
+    # X_train = X_train[:500,:]
+    # y_train = y_train[:500]
+    # X_test = X_test[:100, :]
+    # y_test = y_test[:100]
     """                        """
     
     # Check if we already have a trained model in our data folder
-    filename = "data/final_model.sav"
+    filename = "data/final_model" + classifier.name + ".sav"
 
     if Path(filename).is_file():
         print(colored("Found a trained model in: {}".format(filename), "blue"))
@@ -66,5 +76,5 @@ if __name__ == "__main__":
     else:
         print(colored("Trained model from scratch.", "red"))
         model = train_model(filename, X_train, y_train)
-
+    
     print_score(classifier, model, X_test, y_test)
