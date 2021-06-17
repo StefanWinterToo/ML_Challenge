@@ -16,7 +16,6 @@ class Classifier:
         except:
             return float(CV.score(X_test, y_test)), "None"
 
-
     def predict_data(self, model, X_test):
         return model.predict(X_test)
 
