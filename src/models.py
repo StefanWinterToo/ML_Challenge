@@ -21,7 +21,6 @@ class Classifier:
 
 
 class SuportVectorMachine(Classifier):
-    
     def train_pipeline(self, X_train, y_train):
         pipeline = Pipeline(
             [
