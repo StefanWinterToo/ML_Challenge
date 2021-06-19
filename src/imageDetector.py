@@ -3,6 +3,7 @@ import os
 import cv2
 import sys
 import pickle
+import csv
 from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -145,4 +146,31 @@ class Samples():
             labels.append(file.split(".")[0])
             
         return labels
-    
+
+    def convertSaveArray(self, file, data):
+        open(file, "a").close()
+        with open(file, "w") as f:
+            n = np.array(data)
+            string = ""
+            for entry in n:
+                for i, row in enumerate(np.swapaxes(np.array(entry), 0, 1)):
+                    if(i<4):
+                        for k, element in enumerate(row):
+                            if k >= 0:
+                                string = string + element
+                        string = string + ","
+                    else:
+                        for k, element in enumerate(row):
+                            string = string + element
+                        writer = csv.writer(f, delimiter = " ", escapechar=' ', quoting=csv.QUOTE_NONE)
+                        writer.writerow([string])
+                        string = ""
+            f.close()
+
+
+    def savePredcitions(self, file, data):
+        open(file, "a").close()
+        with open(file, "w") as f:
+            for row in data:
+                w = csv.writer(f, dialect="excel")
+                w.writerow(row)
