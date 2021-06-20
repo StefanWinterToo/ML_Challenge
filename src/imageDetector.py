@@ -152,20 +152,16 @@ class Samples():
         with open(file, "w") as f:
             n = np.array(data)
             string = ""
-            for entry in n:
-                for i, row in enumerate(np.swapaxes(np.array(entry), 0, 1)):
-                    if(i<4):
-                        for k, element in enumerate(row):
-                            if k >= 0:
-                                string = string + element
-                        string = string + ","
+            for i, row in enumerate(n):
+                for i, element in enumerate(row):
+                    if i < 4:
+                        string = string + element + ","
                     else:
-                        for k, element in enumerate(row):
-                            string = string + element
-                        writer = csv.writer(f, delimiter = " ", escapechar=' ', quoting=csv.QUOTE_NONE)
-                        writer.writerow([string])
-                        string = ""
-            f.close()
+                        string = string + element
+                writer = csv.writer(f, delimiter = " ", escapechar=' ', quoting=csv.QUOTE_NONE)
+                writer.writerow([string])
+                string = ""
+            f.close
 
 
     def savePredcitions(self, file, data):

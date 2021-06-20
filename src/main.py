@@ -6,12 +6,12 @@ from imageDetector import Samples
 
 # Comment out if you don't want to train and predict classifier.
 
-TRAIN_LABELS = "/Users/stefanwinter/Local/data/train_data_label.npz"
-TEST_LABELS = "/Users/stefanwinter/Local/data/test_data_label.npz"
+TRAIN_LABELS = "train_data_label.npz"
+TEST_LABELS = "test_data_label.npz"
 # tp = TrainPredict("SVM", TRAIN_LABELS, TEST_LABELS) # Either SVM or rf
 
-PATH = "/Users/stefanwinter/Local/data/sample_dataset"
-TRAINED_MODEL_PATH = "/Users/stefanwinter/Local/ML_Challenge/data/trained_models/svm/final_modelSVM.sav"
+PATH = "sample_dataset"
+TRAINED_MODEL_PATH = "../data/trained_models/svm/final_modelSVM.sav"
 
 imgDetector = Samples()
 images = imgDetector.load_images_from_folder(PATH)
@@ -36,7 +36,7 @@ print(f"Number correct: {correct} \nAccuracy: {correct/len(true_labels)}")
 
 # Making predictions for al 10,000 images in the full data set
 start = time.time()
-dataset = numpy.load("/Users/stefanwinter/Local/data/test_images_task2.npy")
+dataset = numpy.load("test_images_task2.npy")
 dataset = dataset.astype('uint8')
 # dataset = dataset[:10]
 print(dataset.shape)
@@ -45,8 +45,8 @@ all_img_dataset = imgDetector.hand_locator(dataset, hands_found_dataset)
 dataset_preds = imgDetector.predict(all_img_dataset, TRAINED_MODEL_PATH)
 dataset_final_predictions = imgDetector.beautifier(dataset_preds)
 
-FINAL_PREDS_PATH = "/Users/stefanwinter/Local/ML_Challenge/data/predictions_all_images/preds.csv"
-imgDetector.convertSaveArray(FINAL_PREDS_PATH, dataset_preds)
+FINAL_PREDS_PATH = "prediction.csv"
+imgDetector.convertSaveArray(FINAL_PREDS_PATH, dataset_final_predictions)
 # imgDetector.convertSaveArray(FINAL_PREDS_PATH, dataset_preds)
 
 #file = "data/predictions_all_images/preds.csv"
